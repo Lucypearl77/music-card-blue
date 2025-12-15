@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Profile Card</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Background -->
+<div class="background"></div>
+
+<!-- Main Card -->
+<div class="card">
+
+  <img src="avatar.png" class="avatar">
+
+  <h1>Rensu</h1>
+
+  <div class="tags">
+    <span>DEV</span>
+    <span>PHP</span>
+    <span>SYS</span>
+  </div>
+
+  <p class="status">&gt; I'm here lol</p>
+
+  <!-- Music Section -->
+  <div class="music-card">
+
+    <img src="cover.jpg" class="cover">
+
+    <h3>blue</h3>
+    <p class="artist">yung kai</p>
+
+    <!-- AUDIO (NO DEFAULT CONTROLS) -->
+    <audio id="audio">
+      <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- CUSTOM CONTROLS -->
+    <div class="player">
+      <button id="playBtn">▶</button>
+      <span id="time">0:00</span>
+    </div>
+
+    <input type="range" id="progress" value="0">
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* Background (3rd image) */
+.background {
+  position: fixed;
+  inset: 0;
+  background: url("bg.jpg") center / cover no-repeat;
+  filter: blur(12px) brightness(0.6);
+  z-index: -1;
+}
+
+/* Card */
+.card {
+  width: 90%;
+  max-width: 360px;
+  background: rgba(20, 20, 20, 0.95);
+  color: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+/* Avatar */
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Tags */
+.tags span {
+  background: #6fa8ff;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin: 3px;
+}
+
+/* Status */
+.status {
+  margin: 10px 0;
+  color: #7bed9f;
+  font-family: monospace;
+}
+
+/* Music Card */
+.music-card {
+  background: #111;
+  border-radius: 15px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.cover {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* Artist */
+.artist {
+  color: #6fa8ff;
+  font-size: 14px;
+}
+
+/* Player */
+.player {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+#playBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #6fa8ff;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#time {
+  font-size: 13px;
+  color: #aaa;
+}
+
+#progress {
+  width: 100%;
+  margin-top: 8px;
+  accent-color: #6fa8ff;
+}
+
+/* Mobile Friendly */
+@media (max-width: 480px) {
+  .card {
+    margin: 20px auto;
+  }
+}
