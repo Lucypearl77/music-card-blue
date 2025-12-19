@@ -8,48 +8,43 @@
 </head>
 <body>
 
-<!-- Background -->
-<div class="background"></div>
+  <div class="card">
+    <img src="profile.jpg" class="avatar" alt="Avatar">
+    
+    <h1>Lucy</h1>
 
-<!-- Main Card -->
-<div class="card">
-
-  <img src="avatar.png" class="avatar">
-
-  <h1>Rensu</h1>
-
-  <div class="tags">
-    <span>DEV</span>
-    <span>PHP</span>
-    <span>SYS</span>
-  </div>
-
-  <p class="status">&gt; I'm here lol</p>
-
-  <!-- Music Section -->
-  <div class="music-card">
-
-    <img src="cover.jpg" class="cover">
-
-    <h3>blue</h3>
-    <p class="artist">yung kai</p>
-
-    <!-- AUDIO (NO DEFAULT CONTROLS) -->
-    <audio id="audio">
-      <source src="song.mp3" type="audio/mpeg">
-    </audio>
-
-    <!-- CUSTOM CONTROLS -->
-    <div class="player">
-      <button id="playBtn">▶</button>
-      <span id="time">0:00</span>
+    <div class="tags">
+      <span>DEV</span>
+      <span>PHP</span>
+      <span>SYS</span>
     </div>
 
-    <input type="range" id="progress" value="0">
+    <p class="status" id="lyrics-display">&gt; Press play for lyrics</p>
+
+    <div class="music">
+      <h3>blue</h3>
+      <p class="artist">yung kai</p>
+
+      <audio id="audio">
+        <source src="song.mp3" type="audio/mpeg">
+      </audio>
+
+      <div class="progress-container">
+        <span id="current-time">0:00</span>
+        <input type="range" id="progress" value="0" min="0" max="100">
+        <span id="duration">0:00</span>
+      </div>
+
+      <div class="controls">
+        <button class="small-btn">🔀</button>
+        <button class="small-btn">⏮</button>
+        <button id="playBtn">▶</button>
+        <button class="small-btn">⏭</button>
+        <button class="small-btn">🔁</button>
+      </div>
+    </div>
   </div>
 
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
