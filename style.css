@@ -18,7 +18,7 @@ body {
   width: 320px;
   padding: 25px;
   border-radius: 20px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(155, 16, 180, 0);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   color: white;
@@ -60,7 +60,7 @@ h1 {
 /* Updated Status/Lyrics with Transition */
 .status {
   margin: 10px 0 20px;
-  color: #7CFF4F;
+  color: #4fffff;
   font-family: monospace;
   font-size: 13px;
   min-height: 40px; /* Prevents card from jumping when text changes */
@@ -70,7 +70,7 @@ h1 {
 /* Glow Effect Class for Script.js */
 .lyric-glow {
   color: #ffffff !important;
-  text-shadow: 0 0 15px #7CFF4F, 0 0 25px #7CFF4F;
+  text-shadow: 0 0 15px #4fd9ff, 0 0 25px #4f98ff;
   transform: scale(1.05);
 }
 
@@ -102,7 +102,7 @@ h1 {
   flex: 1;
   height: 4px;
   cursor: pointer;
-  accent-color: #7CFF4F;
+  accent-color: hsl(205, 85%, 54%);
 }
 
 #current-time, #duration {
