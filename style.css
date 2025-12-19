@@ -70,7 +70,7 @@ h1 {
 /* Glow Effect Class for Script.js */
 .lyric-glow {
   color: #ffffff !important;
-  text-shadow: 0 0 15px #4fd9ff, 0 0 25px #4f98ff;
+  text-shadow: 0 0 15px #4fd9ff, 0 0 25px #69b9ff;
   transform: scale(1.05);
 }
 
@@ -102,7 +102,7 @@ h1 {
   flex: 1;
   height: 4px;
   cursor: pointer;
-  accent-color: hsl(205, 85%, 54%);
+  accent-color: hsl(195, 88%, 64%);
 }
 
 #current-time, #duration {
