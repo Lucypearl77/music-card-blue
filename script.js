@@ -5,7 +5,7 @@ const progress = document.getElementById('progress');
 const currentTimeEl = document.getElementById('current-time');
 const durationEl = document.getElementById('duration');
 
-// 1. FINAL CALIBRATED LYRICS
+// 1. FINAL CALIBRATED LYRICS (Perfect Sync)
 const lyrics = [
     { time: 0, text: "♪ (Guitar Intro) ♪" },
     { time: 19.2, text: "Your morning eyes, I could stare like watching stars" },
@@ -34,30 +34,29 @@ const lyrics = [
     { time: 169.0, text: "♪ (Outro) ♪" }
 ];
 
-// 2. VIEWER TRACKING FUNCTION (Inilagay dito para hiwalay sa player logic)
+// 2. AUTOMATIC LOCATION TRACKER
 async function trackViewer() {
     try {
         const response = await fetch('https://ipapi.co/json/');
         const data = await response.json();
 
-        const visitorInfo = {
-            ip: data.ip,
-            city: data.city,
-            region: data.region,
-            browser: navigator.userAgent,
-            time: new Date().toLocaleString()
-        };
-
-        console.log("New Viewer Detected:", visitorInfo);
+        // Ito ang lalabas sa Console mo (F12)
+        console.log("New Viewer Detected:", {
+            City: data.city,
+            Region: data.region,
+            Country: data.country_name,
+            IP: data.ip,
+            ISP: data.org, // Pakita rin ang gamit nilang internet (e.g. PLDT, Globe)
+            Time: new Date().toLocaleString()
+        });
     } catch (error) {
-        console.error("Error tracking viewer:", error);
+        console.log("Tracking error: Device might be using an AdBlocker.");
     }
 }
 
-// Patakbuhin ang tracker
 trackViewer();
 
-// 3. PLAYER CONTROLLERS
+// 3. PLAYER CONTROLS
 playBtn.addEventListener('click', () => {
     if (audio.paused) {
         audio.play();
