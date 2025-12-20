@@ -1,3 +1,20 @@
+// 1. FIREBASE CONFIGURATION
+const firebaseConfig = {
+  apiKey: "AIzaSyBwH-CchuO6Yn8pFKgj80UkioYaB8_g8zo",
+  authDomain: "music-tracker-ec066.firebaseapp.com",
+  databaseURL: "https://music-tracker-ec066-default-rtdb.firebaseio.com",
+  projectId: "music-tracker-ec066",
+  storageBucket: "music-tracker-ec066.firebasestorage.app",
+  messagingSenderId: "137190880682",
+  appId: "1:137190880682:web:6c524e9e83da148d0267d3",
+  measurementId: "G-YDKNHEVRT7"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+
+// 2. PLAYER VARIABLES
 const audio = document.getElementById('audio');
 const playBtn = document.getElementById('playBtn');
 const lyricsDisplay = document.getElementById('lyrics-display');
@@ -5,7 +22,7 @@ const progress = document.getElementById('progress');
 const currentTimeEl = document.getElementById('current-time');
 const durationEl = document.getElementById('duration');
 
-// 1. FINAL CALIBRATED LYRICS (Perfect Sync)
+// 3. LYRICS DATA
 const lyrics = [
     { time: 0, text: "♪ (Guitar Intro) ♪" },
     { time: 19.2, text: "Your morning eyes, I could stare like watching stars" },
@@ -34,21 +51,26 @@ const lyrics = [
     { time: 169.0, text: "♪ (Outro) ♪" }
 ];
 
-// 2. AUTOMATIC LOCATION TRACKER
+// 4. FIREBASE CLOUD TRACKER
 async function trackViewer() {
     try {
         const response = await fetch('https://ipapi.co/json/');
         const data = await response.json();
 
-        // Ito ang lalabas sa Console mo (F12)
-        console.log("New Viewer Detected:", {
-            City: data.city,
-            Region: data.region,
-            Country: data.country_name,
-            IP: data.ip,
-            ISP: data.org, // Pakita rin ang gamit nilang internet (e.g. PLDT, Globe)
-            Time: new Date().toLocaleString()
-        });
+        const visitorInfo = {
+            city: data.city,
+            region: data.region,
+            country: data.country_name,
+            ip: data.ip,
+            isp: data.org,
+            time: new Date().toLocaleString(),
+            device: navigator.userAgent
+        };
+
+        // Sine-save ang data sa iyong Firebase "Logbook"
+        database.ref('viewers').push(visitorInfo);
+        console.log("Viewer tracked to Firebase Cloud!");
+
     } catch (error) {
         console.log("Tracking error: Device might be using an AdBlocker.");
     }
@@ -56,7 +78,7 @@ async function trackViewer() {
 
 trackViewer();
 
-// 3. PLAYER CONTROLS
+// 5. PLAYER CONTROLS
 playBtn.addEventListener('click', () => {
     if (audio.paused) {
         audio.play();
